@@ -15,7 +15,7 @@ jobs:
         uses: michaelw90/PHP-Lint@master
       # security check
       - name: Security Checker
-        uses: symfonycorp/security-checker-action
+        uses: symfonycorp/security-checker-action@v2
       - name: PHPStan
         uses: docker://oskarstark/phpstan-ga
         with:
