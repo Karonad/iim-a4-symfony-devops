@@ -8,8 +8,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # git clone
-      - uses: actions/checkout@v2
+      - name: Init Project
+        uses: actions/checkout@v2
       # linter
-      - uses: michaelw90/PHP-Lint@master
+      - name: PHP Linter
+        uses: michaelw90/PHP-Lint@master
       # security check
-      - uses: symfonycorp/security-checker-action
+      - name: Security Checker
+        uses: symfonycorp/security-checker-action
+      - name: PHPStan
+        uses: docker://oskarstark/phpstan-ga
+        with:
+          args: analyse src/
